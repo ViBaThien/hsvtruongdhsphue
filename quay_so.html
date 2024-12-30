@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quay Số - Sổ Xố Vui Xuân</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #f9f9f9, #ffe0b2); /* Màu nền nhẹ nhàng, có màu vàng dịu để thể hiện Tết */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            color: #d32f2f; /* Màu đỏ để phù hợp với không khí Tết */
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 1.2em;
+            color: #333;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 5px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        select:hover, button:hover {
+            background-color: #f1f1f1;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 3em; /* Tăng kích thước font của kết quả */
+            font-weight: bold;
+            color: #ff5722; /* Màu sắc nổi bật cho số */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Thêm hiệu ứng bóng đổ */
+            transition: all 0.3s ease;
+        }
+        .result span {
+            font-size: 0.5em; /* Phần text bổ sung (ví dụ giải thưởng) nhỏ hơn */
+        }
+        .header {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .subheader {
+            font-size: 1.2em;
+            color: #d32f2f;
+            font-style: italic;
+        }
+        .tet-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .tet-decoration {
+            font-size: 1.5em;
+            color: #ff9800;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .logos img {
+            width: 100px; /* Thay đổi kích thước của logo nếu cần */
+            margin: 0 10px;
+        }
+
+        .link-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: white;
+            background-color: #4caf50;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .link-button:hover {
+            background-color: #43a047;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hiệu ứng nhảy số cho các viên bi */
+        .ball {
+        display: inline-block;
+        width: 80px; /* Tăng kích thước của viên bi */
+        height: 80px; /* Tăng kích thước của viên bi */
+        border-radius: 50%;
+        background-color: #ff3c00;
+        color: white;
+        font-size: 2em; /* Tăng kích thước chữ trong viên bi */
+        line-height: 80px; /* Điều chỉnh để văn bản căn giữa */
+        text-align: center;
+        margin: 10px; /* Tăng khoảng cách giữa các viên bi */
+        opacity: 0.8;
+    }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Thêm phần logo ở trên tiêu đề -->
+        <div class="logos">
+            <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/10/Logo-Hoi-Sinh-Vien-Viet-Nam.png" alt="Logo Hội Sinh Viên Việt Nam">
+            <img src="https://upload.wikimedia.org/wikipedia/vi/c/c9/Logo_Tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_S%C6%B0_ph%E1%BA%A1m%2C_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Hu%E1%BA%BF.svg" alt="Logo Trường Đại học Sư phạm, Đại học Huế">
+        </div>
+
+        <div class="header">HỘI SINH VIÊN VIỆT NAM TRƯỜNG ĐẠI HỌC SƯ PHẠM HUẾ</div>
+        <h1>Quay Số - Sổ Xố Vui Xuân</h1>
+        <p class="subheader">Gây quỹ học bổng hỗ trợ "Sinh viên nghèo vượt khó"</p>
+
+        <!-- Thêm hình ảnh liên quan đến Tết -->
+        <img src="https://www.dhsphue.edu.vn/HEADER/1_z5688161533329_2995b69452d949246f04acd0a417277b.jpg" alt="Hình ảnh Tết" class="tet-image">
+
+        <label for="prize">Chọn giải:</label>
+        <select id="prize">
+            <option value="Đặc biệt">Đặc biệt</option>
+            <option value="Nhất">Nhất</option>
+            <option value="Nhì">Nhì</option>
+            <option value="Ba">Ba</option>
+            <option value="Khuyến khích">Khuyến khích</option>
+        </select>
+        <br>
+        <button onclick="quaySo()">Quay Số</button>
+
+        <div class="result" id="result">Hãy chọn giải và quay số!</div>
+
+        <!-- Hiển thị các viên bi -->
+        <div id="balls"></div>
+
+        <!-- Liên kết đến trang hiển thị kết quả -->
+        <a href="hien_thi_ket_qua.html" class="link-button">Xem Kết Quả</a>
+
+        <div class="tet-decoration">Chúc Mừng Năm Mới!</div>
+    </div>
+
+    <script>
+        function quaySo() {
+            const prize = document.getElementById('prize').value;
+            const resultElement = document.getElementById('result');
+            const ballsElement = document.getElementById('balls');
+
+            // Tạo hiệu ứng viên bi quay
+            ballsElement.innerHTML = '';  // Xóa các viên bi cũ
+            const balls = [];
+            for (let i = 0; i < 4; i++) {  // Thay đổi số viên bi thành 4
+                const ball = document.createElement('div');
+                ball.classList.add('ball');
+                ball.textContent = '0';
+                ballsElement.appendChild(ball);
+                balls.push(ball);
+            }
+
+            // Cập nhật số liên tục trong 3 giây
+            let counter = 0;
+            const interval = setInterval(() => {
+                balls.forEach(ball => {
+                    ball.textContent = Math.floor(Math.random() * 10); // Cập nhật số ngẫu nhiên cho viên bi
+                });
+                counter++;
+            }, 100); // Cập nhật mỗi 100ms
+
+            // Sau 3 giây, dừng lại và hiển thị kết quả cuối cùng
+            setTimeout(() => {
+                clearInterval(interval); // Dừng việc thay đổi số
+                
+                // Tạo số ngẫu nhiên cho các viên bi
+                balls.forEach(ball => {
+                    ball.textContent = Math.floor(Math.random() * 10);
+                });
+                
+                // Cập nhật kết quả
+                const finalNumber = balls.map(ball => ball.textContent).join('');
+                resultElement.textContent = `Kết quả giải ${prize.toUpperCase()}: ${finalNumber}`;
+                
+                // Lưu kết quả vào LocalStorage
+                const results = JSON.parse(localStorage.getItem('results')) || [];
+                results.push({ prize, result: finalNumber, timestamp: new Date().toISOString() });
+                localStorage.setItem('results', JSON.stringify(results));
+            }, 10000); // 3 giây = 3000ms
+        }
+    </script>
+</body>
+</html>

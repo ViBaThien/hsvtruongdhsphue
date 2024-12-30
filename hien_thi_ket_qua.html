@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển Thị Kết Quả Xổ Số</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9; /* Màu nền sáng nhẹ */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            color: #d32f2f; /* Màu đỏ tươi để nổi bật */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+        }
+        th {
+            background-color: #f5f5f5;
+            color: #3f51b5;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .delete-btn {
+            background-color: #e57373;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .delete-btn:hover {
+            background-color: #ef5350;
+        }
+        .footer {
+            margin-top: 20px;
+            color: #757575;
+            font-size: 0.9em;
+        }
+        .logo {
+            width: 100px; /* Thay đổi kích thước của logo nếu cần */
+            margin: 0 10px;
+        }
+        .header-text {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            font-size: 1.2em;
+            color: #d32f2f;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Thêm logo và chữ giới thiệu -->
+        <div class="header-text">
+            <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/10/Logo-Hoi-Sinh-Vien-Viet-Nam.png" alt="Logo Hội Sinh Viên Việt Nam" class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/vi/c/c9/Logo_Tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_S%C6%B0_ph%E1%BA%A1m%2C_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Hu%E1%BA%BF.svg" alt="Logo Trường Đại học Sư phạm Huế" class="logo">
+            <div class="header"><B>HỘI SINH VIÊN VIỆT NAM TRƯỜNG ĐẠI HỌC SƯ PHẠM HUẾ</B></div>
+        </div>
+        <h1>KẾT QUẢ SỔ XỐ VUI XUÂN</h1>
+        <p class="subheader">Gây quỹ học bổng hỗ trợ "Sinh viên nghèo vượt khó"</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Giải</th>
+                    <th>Kết Quả</th>
+                    <th>Thời Gian</th>
+                    <th>Hành Động</th>
+                </tr>
+            </thead>
+            <tbody id="results"></tbody>
+        </table>
+        <div class="footer">Chúc bạn may mắn! Chúc Tết vui vẻ!</div>
+
+        <!-- Liên kết quay lại trang quay số -->
+        <a href="quay_so.html" class="back-link">Quay lại trang quay số</a>
+    </div>
+
+    <script>
+        // Lấy dữ liệu từ LocalStorage
+        const results = JSON.parse(localStorage.getItem('results')) || [];
+        const resultsElement = document.getElementById('results');
+
+        // Hiển thị kết quả
+        if (results.length === 0) {
+            resultsElement.innerHTML = '<tr><td colspan="4">Chưa có kết quả xổ số</td></tr>';
+        } else {
+            resultsElement.innerHTML = results.map((item, index) => `
+                <tr>
+                    <td>${item.prize.toUpperCase()}</td>
+                    <td>${item.result}</td>
+                    <td>${new Date(item.timestamp).toLocaleString()}</td>
+                    <td><button class="delete-btn" onclick="deleteResult(${index})">Xóa</button></td>
+                </tr>
+            `).join('');
+        }
+
+        // Hàm xóa kết quả
+        function deleteResult(index) {
+            // Lọc kết quả để loại bỏ giải bị xóa
+            const updatedResults = results.filter((item, i) => i !== index);
+            localStorage.setItem('results', JSON.stringify(updatedResults));
+            location.reload(); // Tải lại trang sau khi xóa
+        }
+    </script>
+</body>
+</html>
