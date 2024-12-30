@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Sổ Xố Vui Xuân</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #f9f9f9, #ffe0b2); /* Màu nền nhẹ nhàng, có màu vàng dịu để thể hiện Tết */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            color: #d32f2f; /* Màu đỏ để phù hợp với không khí Tết */
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            margin: 10px 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+            background-color: #4caf50;
+            padding: 10px 20px;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            background-color: #43a047;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .subheader {
+            font-size: 1.2em;
+            color: #d32f2f;
+            font-style: italic;
+        }
+        .tet-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .tet-decoration {
+            font-size: 1.5em;
+            color: #ff9800;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .logos img {
+            width: 100px; /* Thay đổi kích thước của logo nếu cần */
+            margin: 0 10px;
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Thêm phần logo ở trên tiêu đề -->
+        <div class="logos">
+            <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/10/Logo-Hoi-Sinh-Vien-Viet-Nam.png" alt="Logo Hội Sinh Viên Việt Nam">
+            <img src="https://upload.wikimedia.org/wikipedia/vi/c/c9/Logo_Tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_S%C6%B0_ph%E1%BA%A1m%2C_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Hu%E1%BA%BF.svg" alt="Logo Trường Đại học Sư phạm, Đại học Huế">
+        </div>
+
+        <div class="header">HỘI SINH VIÊN VIỆT NAM TRƯỜNG ĐẠI HỌC SƯ PHẠM HUẾ</div>
+        <h1>SỔ XỐ VUI XUÂN</h1>
+        <p class="subheader">Gây quỹ học bổng hỗ trợ "Sinh viên nghèo vượt khó"</p>
+
+        <!-- Thêm hình ảnh liên quan đến Tết -->
+        <img src="https://www.dhsphue.edu.vn/HEADER/1_z5688161533329_2995b69452d949246f04acd0a417277b.jpg" alt="Hình ảnh Tết" class="tet-image">
+
+        <p>Chọn một trong các tùy chọn bên dưới:</p>
+        <a href="quay_so.html">Quay Số Xổ</a>
+        <a href="hien_thi_ket_qua.html">Hiển Thị Kết Quả</a>
+
+        <div class="tet-decoration">Chúc Mừng Năm Mới!</div>
+    </div>
+
+</body>
+</html>
